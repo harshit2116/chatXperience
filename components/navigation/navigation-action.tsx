@@ -7,7 +7,15 @@ import { useModal } from "@/hooks/use-modal-store";
 
 import { cn } from "@/lib/utils";
 
-import { Plus, ImageIcon, LayoutDashboard, MessageSquare, VideoIcon, Code, Settings } from "lucide-react";
+import {
+  Plus,
+  ImageIcon,
+  LayoutDashboard,
+  MessageSquare,
+  VideoIcon,
+  Code,
+  Settings,
+} from "lucide-react";
 import { usePathname } from "next/navigation";
 
 const routes = [
@@ -59,29 +67,26 @@ export const NavigationAction = () => {
 
   return (
     <div>
-        <button
-          onClick={() => onOpen("createServer")}
-          className="group flex items-center text-sm p-3 w-full justify-start font-medium cursor-pointer hover:bg-white/10 rounded-lg transition"
-        >
+      <button
+        onClick={() => onOpen("createServer")}
+        className="group flex items-center text-sm p-3 w-full justify-start font-medium cursor-pointer hover:bg-white/10 rounded-lg transition"
+      >
         <div className="flex items-center flex-1">
-          <Plus
-            className="h-5 w-5 mr-3  text-emerald-500"
-            size={20}
-          />
+          <Plus className="h-5 w-5 mr-3  text-emerald-500" size={20} />
           <span>Create a Server</span>
-          </div>
-        </button>
+        </div>
+      </button>
 
       <div className="space-y-1">
-        {routes.map(route => (
+        {routes.map((route) => (
           <Link
             key={route.href}
             href={route.href}
-            className = {cn("text-sm gourp flex p-3 w-full justify-start font-medium cursor-pointer hover: dark:text-white text-black hover:bg-white/10 rounded-lg transition",
-            pathname === route.href 
-            
+            className={cn(
+              "text-sm gourp flex p-3 w-full justify-start font-medium cursor-pointer hover: dark:text-white text-black hover:bg-white/10 rounded-lg transition",
+              pathname === route.href
             )}
-          > 
+          >
             <div className="flex items-center flex-1">
               <route.icon className={cn("h-5 w-5 mr-3", route.color)} />
               {route.label}
@@ -90,5 +95,5 @@ export const NavigationAction = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};

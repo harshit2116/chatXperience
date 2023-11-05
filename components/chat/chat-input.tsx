@@ -8,12 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Plus } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useModal } from "@/hooks/use-modal-store";
 import { EmojiPicker } from "@/components/emoji-picker";
@@ -29,12 +24,7 @@ const formSchema = z.object({
   content: z.string().min(1),
 });
 
-export const ChatInput = ({
-  apiUrl,
-  query,
-  name,
-  type,
-}: ChatInputProps) => {
+export const ChatInput = ({ apiUrl, query, name, type }: ChatInputProps) => {
   const { onOpen } = useModal();
   const router = useRouter();
 
@@ -42,7 +32,7 @@ export const ChatInput = ({
     resolver: zodResolver(formSchema),
     defaultValues: {
       content: "",
-    }
+    },
   });
 
   const isLoading = form.formState.isSubmitting;
@@ -61,8 +51,8 @@ export const ChatInput = ({
     } catch (error) {
       console.log(error);
     }
-  }
-  
+  };
+
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -83,12 +73,16 @@ export const ChatInput = ({
                   <Input
                     disabled={isLoading}
                     className="px-14 py-6 bg-zinc-200/90 dark:bg-[#200745] border-none border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-white dark:text-white"
-                    placeholder={`Type your message here in  ${type === "conversation" ? name : "#" + name}`}
+                    placeholder={`Type your message here in  ${
+                      type === "conversation" ? name : "#" + name
+                    }`}
                     {...field}
                   />
                   <div className="absolute top-7 right-8">
                     <EmojiPicker
-                      onChange={(emoji: string) => field.onChange(`${field.value} ${emoji}`)}
+                      onChange={(emoji: string) =>
+                        field.onChange(`${field.value} ${emoji}`)
+                      }
                     />
                   </div>
                 </div>
@@ -98,5 +92,5 @@ export const ChatInput = ({
         />
       </form>
     </Form>
-  )
-}
+  );
+};

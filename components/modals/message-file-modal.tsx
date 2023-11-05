@@ -14,12 +14,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-} from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import { FileUpload } from "@/components/file-upload";
 import { useRouter } from "next/navigation";
@@ -27,8 +22,8 @@ import { useModal } from "@/hooks/use-modal-store";
 
 const formSchema = z.object({
   fileUrl: z.string().min(1, {
-    message: "Attachment is required."
-  })
+    message: "Attachment is required.",
+  }),
 });
 
 export const MessageFileModal = () => {
@@ -42,13 +37,13 @@ export const MessageFileModal = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       fileUrl: "",
-    }
+    },
   });
 
   const handleClose = () => {
     form.reset();
     onClose();
-  }
+  };
 
   const isLoading = form.formState.isSubmitting;
 
@@ -70,7 +65,7 @@ export const MessageFileModal = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   return (
     <Dialog open={isModalOpen} onOpenChange={handleClose}>
@@ -113,5 +108,5 @@ export const MessageFileModal = () => {
         </Form>
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};

@@ -3,7 +3,7 @@ import { Hash } from "lucide-react";
 interface ChatWelcomeProps {
   name: string;
   type: "channel" | "conversation";
-};
+}
 
 export const ChatWelcome = ({ name, type }: ChatWelcomeProps) => {
   return (
@@ -14,14 +14,14 @@ export const ChatWelcome = ({ name, type }: ChatWelcomeProps) => {
         </div>
       )}
       <p className="text-3xl font-bold text-zine-600 dark:text-purple-200">
-        {type === "channel" ? "Welcome to #" : ""}{name}
+        {type === "channel" ? "Welcome to #" : ""}
+        {name}
       </p>
       <p className="text-zinc-600 dark:text-purple-200 text-sm text-center">
         {type === "channel"
           ? `This is the start of the #${name} channel.`
-          : `This is the start of your conversation with ${name}`
-        }
+          : `This is the start of your conversation with ${name}`}
       </p>
     </div>
-  )
-}
+  );
+};

@@ -9,15 +9,11 @@ interface HeadingProps {
 }
 
 export const Heading = ({
-    title,
-    description,
-    icon,
-    iconColor,
-    bgcolor
+  title,
+  description,
+  icon,
+  iconColor,
+  bgcolor,
 }: HeadingProps) => {
-    return (
-        <div>
-            Heading Component
-        </div>
-    );
+  return <div>Heading Component</div>;
 };

@@ -20,7 +20,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -29,11 +29,11 @@ import { useRouter } from "next/navigation";
 
 const formSchema = z.object({
   name: z.string().min(1, {
-    message: "Server name is required."
+    message: "Server name is required.",
   }),
   imageUrl: z.string().min(1, {
-    message: "Server image is required."
-  })
+    message: "Server image is required.",
+  }),
 });
 
 export const InitialModal = () => {
@@ -50,7 +50,7 @@ export const InitialModal = () => {
     defaultValues: {
       name: "",
       imageUrl: "",
-    }
+    },
   });
 
   const isLoading = form.formState.isSubmitting;
@@ -65,7 +65,7 @@ export const InitialModal = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
 
   if (!isMounted) {
     return null;
@@ -108,9 +108,7 @@ export const InitialModal = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel
-                      className="uppercase text-xs font-bold text-black "
-                    >
+                    <FormLabel className="uppercase text-xs font-bold text-black ">
                       Server name
                     </FormLabel>
                     <FormControl>
@@ -135,5 +133,5 @@ export const InitialModal = () => {
         </Form>
       </DialogContent>
     </Dialog>
-  )
-}
+  );
+};
