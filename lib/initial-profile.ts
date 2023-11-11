@@ -11,8 +11,8 @@ export const initialProfile = async () => {
 
   const profile = await db.profile.findUnique({
     where: {
-      userId: user.id
-    }
+      userId: user.id,
+    },
   });
 
   if (profile) {
@@ -22,11 +22,50 @@ export const initialProfile = async () => {
   const newProfile = await db.profile.create({
     data: {
       userId: user.id,
-      name: `${user.firstName} ${user.lastName}`,
+      username: user.username || "",
+      name:
+        user.username && user.username.trim() !== ""
+          ? user.username
+          : `${user.firstName}`,
       imageUrl: user.imageUrl,
-      email: user.emailAddresses[0].emailAddress
-    }
+      email: user.emailAddresses[0].emailAddress,
+    },
   });
 
   return newProfile;
+};
+
+export const updateProfile = async () => {
+  const user = await currentUser();
+
+  if (!user) {
+    return redirectToSignIn();
+  }
+
+  const profile = await db.profile.findUnique({
+    where: {
+      userId: user.id,
+    },
+  });
+
+  if (profile) {
+    let updateData: { username?: string; name?: string } = {};
+
+    if (profile.username !== user.username) {
+      updateData.username = user.username || '';
+    }
+
+    if (profile.name !== user.username) {
+      updateData.name = user.username || user.firstName || '';
+    }
+
+    if (Object.keys(updateData).length > 0) {
+      await db.profile.update({
+        where: {
+          userId: user.id,
+        },
+        data: updateData,
+      });
+    }
+  }
 };

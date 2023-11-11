@@ -124,7 +124,7 @@ export const InitialModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-black px-6 py-4">
+            <DialogFooter className="bg-white px-6 py-4">
               <Button variant="default" disabled={isLoading}>
                 Create
               </Button>
