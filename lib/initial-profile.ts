@@ -49,14 +49,19 @@ export const updateProfile = async () => {
   });
 
   if (profile) {
-    let updateData: { username?: string; name?: string } = {};
+    let updateData: { username?: string; name?: string; imageUrl?: string } =
+      {};
 
     if (profile.username !== user.username) {
-      updateData.username = user.username || '';
+      updateData.username = user.username || "";
     }
 
     if (profile.name !== user.username) {
-      updateData.name = user.username || user.firstName || '';
+      updateData.name = user.username || user.firstName || "";
+    }
+
+    if (profile.imageUrl !== user.imageUrl) {
+      updateData.imageUrl = user.imageUrl || "";
     }
 
     if (Object.keys(updateData).length > 0) {
