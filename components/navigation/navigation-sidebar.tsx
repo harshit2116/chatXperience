@@ -12,6 +12,8 @@ import { NavigationItem } from "./navigation-item";
 
 import { ThemeDisplay } from "@/components/ui/ThemeDisplay";
 
+import { ServerName } from "@/components/ServerName";
+
 export const NavigationSidebar = async () => {
   const profile = await currentProfile();
 
@@ -41,7 +43,9 @@ export const NavigationSidebar = async () => {
               name={server.name}
               imageUrl={server.imageUrl}
             />
-            <div className="ml-2">{server.name}</div>
+            <div className="cursor-pointer select-none">
+              <ServerName server={server} />
+            </div>
           </div>
         ))}
       </ScrollArea>
@@ -49,7 +53,7 @@ export const NavigationSidebar = async () => {
       <div className="pb-3 mt-auto flex flex-col gap-y-4 items-start">
         <div className="flex items-start">
           <ModeToggle />
-          <div className="pt-1 pr-8">
+          <div className="pt-1 pr-8 cursor-pointer select-none">
             <ThemeDisplay />
           </div>
         </div>
@@ -63,8 +67,10 @@ export const NavigationSidebar = async () => {
             }}
           />
           <div className="flex flex-col ml-2 pl-2">
-            <div>{profile.name.replace("null", "")}</div>
-            <div className="text-xs">{profile.email}</div>
+            <div className="cursor-pointer select-none">{profile.name}</div>
+            <div className="text-xs cursor-pointer select-none">
+              {profile.email}
+            </div>
           </div>
         </div>
       </div>
