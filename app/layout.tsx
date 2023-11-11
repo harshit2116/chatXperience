@@ -27,7 +27,7 @@ export default function RootLayout({
         <body className={cn(font.className, "bg-white dark:bg-[#0e0222]")}>
           <ThemeProvider
             attribute="class"
-            defaultTheme="dark"
+            defaultTheme="light"
             enableSystem={false}
             storageKey="discord-theme"
           >

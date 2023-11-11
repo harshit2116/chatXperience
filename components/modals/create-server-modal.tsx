@@ -76,9 +76,8 @@ export const CreateServerModal = () => {
           <DialogTitle className="text-2xl text-center font-bold">
             Customize your server
           </DialogTitle>
-          <DialogDescription className="text-center text-zinc-500">
-            Give your server a personality with a name and an image. You can
-            always change it later.
+          <DialogDescription className="text-center text-black">
+            Add name and image for the server which can be always changed later.
           </DialogDescription>
         </DialogHeader>
         <Form {...form}>
@@ -107,13 +106,13 @@ export const CreateServerModal = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-secondary/70">
+                    <FormLabel className="uppercase text-xs font-bold text-black dark:text-secondary/70">
                       Server name
                     </FormLabel>
                     <FormControl>
                       <Input
                         disabled={isLoading}
-                        className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+                        className="bg-black border-0 focus-visible:ring-0 text-white focus-visible:ring-offset-0"
                         placeholder="Enter server name"
                         {...field}
                       />
@@ -123,7 +122,7 @@ export const CreateServerModal = () => {
                 )}
               />
             </div>
-            <DialogFooter className="bg-gray-100 px-6 py-4">
+            <DialogFooter className="bg-black px-6 py-4">
               <Button variant="primary" disabled={isLoading}>
                 Create
               </Button>
