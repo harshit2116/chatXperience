@@ -19,6 +19,14 @@ import {
 import { usePathname } from "next/navigation";
 
 const routes = [
+
+  {
+    label: "Create a Server",
+    icon: Plus,
+    href: "/components/modals/create-server-modal",
+    color: "text-emerald-500",
+  },
+
   {
     label: "Dashboard",
     icon: LayoutDashboard,
@@ -61,30 +69,29 @@ const routes = [
   },
 ];
 
+
 export const NavigationAction = () => {
   const { onOpen } = useModal();
   const pathname = usePathname();
 
+  const handleLinkClick = (href: string, e: React.MouseEvent) => {
+    if (href === "/components/modals/create-server-modal") {
+      e.preventDefault();
+      onOpen("createServer");
+    }
+  };
+
   return (
     <div>
-      <button
-        onClick={() => onOpen("createServer")}
-        className="group flex items-center text-sm p-3 w-full justify-start font-medium cursor-pointer hover:bg-white/10 rounded-lg transition"
-      >
-        <div className="flex items-center flex-1">
-          <Plus className="h-5 w-5 mr-3  text-emerald-500" size={20} />
-          <span>Create a Server</span>
-        </div>
-      </button>
-
       <div className="space-y-1">
         {routes.map((route) => (
-          <Link
-            key={route.href}
+          <Link 
+            key={route.href} 
             href={route.href}
+            onClick={(e) => handleLinkClick(route.href, e)}
             className={cn(
-              "text-sm gourp flex p-3 w-full justify-start font-medium cursor-pointer hover: dark:text-white text-black hover:bg-white/10 rounded-lg transition",
-              pathname === route.href
+              "text-sm gourp flex p-3 w-full rounded-md justify-start font-medium cursor-pointer hover:bg-zinc-700/10 dark:hover:bg-purple-700/50 transition mb-1",
+              pathname === route.href ? "bg-zinc-700/20 dark:bg-purple-500" : ""
             )}
           >
             <div className="flex items-center flex-1">

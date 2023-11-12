@@ -67,8 +67,8 @@ export const NavigationSidebar = async () => {
             }}
           />
           <div className="flex flex-col ml-2 pl-2">
-            <div className="cursor-pointer select-none">{profile.name}</div>
-            <div className="text-xs cursor-pointer select-none">
+            <div className="cursor-pointer select-all">{profile.name}</div>
+            <div className="text-xs select-none">
               {profile.email}
             </div>
           </div>
