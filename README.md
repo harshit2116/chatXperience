@@ -5,7 +5,6 @@ Credits: CodeWithAntonio
 Welcome to chatXperience, a next-generation messaging platform that leverages the power of artificial intelligence to enhance your communication experience.
 This application is built using a robust tech stack that includes React, Next.js, TypeScript, Tailwind CSS, Shadcn, Socket.io, and Prisma for MySQL database.
 
-![Uploading image.png…]()
 
 
 Features Server System c
