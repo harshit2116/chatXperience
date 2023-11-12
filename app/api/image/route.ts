@@ -44,7 +44,6 @@ export async function POST(req: Request) {
       console.error(error.code);
       console.error(error.type);
     } else {
-      // Non-API error
       console.log('[IMAGE_ERROR]', error);
     }
     return new NextResponse("Internal Error", { status: 500 });

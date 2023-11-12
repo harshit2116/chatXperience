@@ -4,6 +4,11 @@ import OpenAI from "openai";
 
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
+const instructionMessage = {
+  role: "system",
+  content: "This interface only supports plain text. Please avoid using any special formatting."
+};
+
 export async function POST(req: Request) {
   try {
     const { userId } = auth();
@@ -23,7 +28,7 @@ export async function POST(req: Request) {
     }
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
-      messages
+      messages : [instructionMessage, ...messages]
     });
  
 
@@ -35,7 +40,6 @@ export async function POST(req: Request) {
       console.error(error.code);
       console.error(error.type); 
     } else {
-      // Non-API error
       console.log(error);
     }
     return new NextResponse("Internal Error", { status: 500 });

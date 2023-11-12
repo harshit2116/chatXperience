@@ -35,12 +35,11 @@ export async function POST(req: Request) {
     return NextResponse.json(response.choices[0].message);
   } catch (error) {
     if (error instanceof OpenAI.APIError) {
-      console.error(error.status);  // e.g. 401
-      console.error(error.message); // e.g. The authentication token you passed was invalid...
-      console.error(error.code);  // e.g. 'invalid_api_key'
-      console.error(error.type);  // e.g. 'invalid_request_error'
+      console.error(error.status);
+      console.error(error.message);
+      console.error(error.code); 
+      console.error(error.type); 
     } else {
-      // Non-API error
       console.log(error);
     }
     return new NextResponse("Internal Error", { status: 500 });

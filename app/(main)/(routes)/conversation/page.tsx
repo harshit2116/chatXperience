@@ -17,7 +17,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import { Loader } from "@/components/loader";
-import { UserAvatar } from "@/components/user-avatar";
+
+import { UserAvatars } from "@/components/ui/user-avatars";
 import { Empty } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
@@ -61,7 +62,7 @@ const ConversationPage = () => {
     <div>
       <Heading
         title="Conversation"
-        description="Our most advanced conversation model."
+        description="Start a conversation with an AI."
         icon={MessageSquare}
         iconColor="text-violet-500"
         bgColor="bg-violet-500/10"
@@ -92,7 +93,7 @@ const ConversationPage = () => {
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
                         disabled={isLoading} 
-                        placeholder="How do I calculate the radius of a circle?" 
+                        placeholder="Start a conversation..." 
                         {...field}
                       />
                     </FormControl>
@@ -123,7 +124,7 @@ const ConversationPage = () => {
                   message.role === "user" ? "bg-white border border-black/10" : "bg-muted",
                 )}
               >
-                {message.role === "user" ? <UserAvatar /> : <BotAvatar />}
+                {message.role === "user" ? <UserAvatars /> : <BotAvatar />}
                 <p className="text-sm">
                   {typeof message.content === 'string' ? message.content : ""}
                 </p>
