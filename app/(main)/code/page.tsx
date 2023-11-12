@@ -19,7 +19,7 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
-import { EmptyCode } from "@/components/ui/empty-code";
+import { EmptyCode } from "@/components/ui/empty";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
