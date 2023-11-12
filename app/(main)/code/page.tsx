@@ -19,7 +19,7 @@ import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { cn } from "@/lib/utils";
 import { Loader } from "@/components/loader";
 import { UserAvatar } from "@/components/user-avatar";
-import { Empty } from "@/components/ui/empty";
+import { EmptyCode } from "@/components/ui/empty-code";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
@@ -113,7 +113,7 @@ const CodePage = () => {
             </div>
           )}
           {messages.length === 0 && !isLoading && (
-            <Empty label="No conversation started." />
+            <EmptyCode label="No conversation started." />
           )}
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message, index) => (

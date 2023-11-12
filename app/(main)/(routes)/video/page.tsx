@@ -14,7 +14,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Loader } from "@/components/loader";
-import { Empty } from "@/components/ui/empty";
+import { EmptyVideo } from "@/components/ui/empty-video";
 import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
@@ -104,7 +104,7 @@ const VideoPage = () => {
           </div>
         )}
         {!video && !isLoading && (
-          <Empty label="No video files generated." />
+          <EmptyVideo label="No video files generated." />
         )}
         {video && (
           <video controls className="w-full aspect-video mt-8 rounded-lg border bg-black">
