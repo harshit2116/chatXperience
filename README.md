@@ -5,9 +5,8 @@ Credits: CodeWithAntonio
 Welcome to chatXperience, a next-generation messaging platform that leverages the power of artificial intelligence to enhance your communication experience.
 This application is built using a robust tech stack that includes React, Next.js, TypeScript, Tailwind CSS, Shadcn, Socket.io, and Prisma for MySQL database.
 
-![image](https://github.com/harshit2116/chatXperience/assets/77571504/48afb4c5-f95f-4342-993f-a49605a16ec3)
-![image](https://github.com/harshit2116/chatXperience/assets/77571504/236b6833-d1eb-4149-8eaa-e1b2257fc4e1)
-
+![image](https://github.com/harshit2116/chatXperience/assets/77571504/df55b620-3cb3-4def-af95-778426c23fda)
+![image](https://github.com/harshit2116/chatXperience/assets/77571504/9d980881-e6b1-42f1-8ac8-5b388a0f1c59)
 
 Features Server System c
 hatXperience features a comprehensive server system that allows users to create their own communities.
