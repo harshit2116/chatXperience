@@ -1,4 +1,4 @@
-/** import Replicate from "replicate";
+import Replicate from "replicate";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
@@ -23,7 +23,7 @@ export async function POST(req: Request) {
     const response = await replicate.run(
       "anotherjesse/zeroscope-v2-xl:71996d331e8ede8ef7bd76eba9fae076d31792e4ddf4ad057779b443d6aea62f",
       {
-        prompt,
+        input: prompt,
       }
     );
 
@@ -32,4 +32,4 @@ export async function POST(req: Request) {
     console.log('[REPLICATE_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });
   }
-}; */
+};

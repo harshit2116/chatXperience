@@ -90,7 +90,7 @@ const PhotoPage = () => {
                 <FormItem className="col-span-12 lg:col-span-6">
                   <FormControl className="m-0 p-0">
                     <Input
-                      className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent"
+                      className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent dark:bg-[#0e0222]"
                       disabled={isLoading} 
                       placeholder="Enter your prompt to generate an image" 
                       {...field}
@@ -103,7 +103,7 @@ const PhotoPage = () => {
               control={form.control}
               name="amount"
               render={({ field }) => (
-                <FormItem className="col-span-12 lg:col-span-2">
+                <FormItem className="col-span-12 lg:col-span-2 ">
                   <Select 
                     disabled={isLoading} 
                     onValueChange={field.onChange} 
@@ -159,7 +159,7 @@ const PhotoPage = () => {
                 </FormItem>
               )}
             />
-            <Button className="col-span-12 lg:col-span-2 w-full" type="submit" disabled={isLoading} size="icon">
+            <Button className="col-span-12 lg:col-span-2 w-full dark:bg-[#210d30] dark:text-white" type="submit" disabled={isLoading} size="icon">
               Generate
             </Button>
           </form>
@@ -182,8 +182,8 @@ const PhotoPage = () => {
                   src={src}
                 />
               </div>
-              <CardFooter className="p-2">
-                <Button onClick={() => window.open(src)} variant="secondary" className="w-full">
+              <CardFooter className="p-2 dark:bg-[#0e0222]">
+                <Button onClick={() => window.open(src)} variant="secondary" className="w-full dark:bg-[#210d30]">
                   <Download className="h-4 w-4 mr-2" />
                   Download
                 </Button>
