@@ -6,7 +6,7 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
-import { FileAudio } from "lucide-react";
+import { VideoIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 import { Heading } from "@/components/heading";
@@ -51,11 +51,11 @@ const VideoPage = () => {
   }
 
   return ( 
-    <div>
+    <div className="pt-8">
       <Heading
         title="Video Generation"
         description="Turn your prompt into video."
-        icon={FileAudio}
+        icon={VideoIcon}
         iconColor="text-orange-700"
         bgColor="bg-orange-700/10"
       />

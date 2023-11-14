@@ -57,7 +57,7 @@ const ConversationPage = () => {
   }
 
   return ( 
-    <div>
+    <div className="pt-8">
       <Heading
         title="Conversation"
         description="Start a conversation with an AI."

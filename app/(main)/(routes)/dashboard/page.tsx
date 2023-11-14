@@ -59,7 +59,7 @@ const DashboardPage = () => {
 
   return (
     <div>
-      <div className="mb-8 space-y-4">
+      <div className="mb-8 space-y-4 pt-8">
         <h2 className="text-2xl md:text-4xl font-bold text-center">
           Have a Conversation with AI
         </h2>

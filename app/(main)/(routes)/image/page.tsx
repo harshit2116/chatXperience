@@ -57,7 +57,7 @@ const PhotoPage = () => {
   }
 
   return ( 
-    <div>
+    <div className="pt-8">
       <Heading
         title="Image Generation"
         description="Turn your prompt into image."
