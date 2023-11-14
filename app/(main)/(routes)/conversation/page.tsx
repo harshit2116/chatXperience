@@ -20,13 +20,11 @@ import { Loader } from "@/components/loader";
 
 import { UserAvatars } from "@/components/ui/user-avatars";
 import { Empty } from "@/components/ui/empty";
-import { useProModal } from "@/hooks/use-pro-modal";
 
 import { formSchema } from "./constants";
 
 const ConversationPage = () => {
   const router = useRouter();
-  const proModal = useProModal();
   const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -49,7 +47,7 @@ const ConversationPage = () => {
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
-        proModal.onOpen();
+        toast.error("You are not authorized to perform this action.");
       } else {
         toast.error("Something went wrong.");
       }
