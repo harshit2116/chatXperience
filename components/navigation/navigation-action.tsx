@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 
-import { ActionTooltip } from "@/components/action-tooltip";
 import { useModal } from "@/hooks/use-modal-store";
 
 import { cn } from "@/lib/utils";
@@ -14,7 +13,6 @@ import {
   MessageSquare,
   VideoIcon,
   Code,
-  Settings,
 } from "lucide-react";
 import { usePathname } from "next/navigation";
 
@@ -62,11 +60,6 @@ const routes = [
     color: "text-green-700",
   },
 
-  {
-    label: "Settings",
-    icon: Settings,
-    href: "/settings",
-  },
 ];
 
 

@@ -5,7 +5,6 @@ import {
   ImageIcon,
   VideoIcon,
   Code,
-  Settings,
   MessagesSquare,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -53,12 +52,6 @@ const tools = [
     href: "/servers/channels",
   },
 
-  {
-    label: "Settings",
-    icon: Settings,
-    bgcolor: "bg-zinc-700/10",
-    href: "/settings",
-  },
 ];
 
 const DashboardPage = () => {
