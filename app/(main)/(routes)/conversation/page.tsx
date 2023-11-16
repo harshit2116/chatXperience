@@ -22,7 +22,6 @@ import { UserAvatars } from "@/components/ui/user-avatars";
 import { Empty } from "@/components/ui/empty";
 
 import { formSchema } from "./constants";
-
 const ConversationPage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);

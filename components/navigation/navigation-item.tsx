@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
 
 import { cn } from "@/lib/utils";
-import { ActionTooltip } from "@/components/action-tooltip";
 
 interface NavigationItemProps {
   id: string;
@@ -21,7 +20,6 @@ export const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
   };
 
   return (
-    <ActionTooltip side="right" align="center" label={name}>
       <button onClick={onClick} className="group relative flex items-center">
         <div
           className={cn(
@@ -40,6 +38,5 @@ export const NavigationItem = ({ id, imageUrl, name }: NavigationItemProps) => {
           <Image fill src={imageUrl} alt="Channel" />
         </div>
       </button>
-    </ActionTooltip>
   );
 };
