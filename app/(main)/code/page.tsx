@@ -20,10 +20,10 @@ import { cn } from "@/lib/utils";
 import { Loader } from "@/components/loader";
 import { UserAvatars } from "@/components/ui/user-avatars";
 import { EmptyCode } from "@/components/ui/empty";
+import { Navbar } from "@/components/navbar"
 
 import { formSchema } from "./constants";
 
-import { Navbar } from "@/components/navbar"
 
 const CodePage = () => {
   const router = useRouter();

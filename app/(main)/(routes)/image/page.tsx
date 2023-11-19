@@ -17,10 +17,10 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Loader } from "@/components/loader";
 import { EmptyImage } from "@/components/ui/empty";
+import { Navbar } from "@/components/navbar"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
-import { Navbar } from "@/components/navbar"
 
 const PhotoPage = () => {
   const router = useRouter();

@@ -20,10 +20,10 @@ import { Loader } from "@/components/loader";
 
 import { UserAvatars } from "@/components/ui/user-avatars";
 import { Empty } from "@/components/ui/empty";
+import { Navbar } from "@/components/navbar"
 
 import { formSchema } from "./constants"; 
 
-import { Navbar } from "@/components/navbar"
 
 
 const ConversationPage = () => {
