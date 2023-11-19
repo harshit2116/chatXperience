@@ -15,10 +15,10 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Loader } from "@/components/loader";
 import { EmptyVideo } from "@/components/ui/empty";
-import { Navbar } from "@/components/navbar"
 
 import { formSchema } from "./constants";
 
+import { Navbar } from "@/components/navbar"
 
 const VideoPage = () => {
   const router = useRouter();
