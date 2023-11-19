@@ -20,6 +20,7 @@ import { EmptyImage } from "@/components/ui/empty";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
+import { Navbar } from "@/components/navbar"
 
 const PhotoPage = () => {
   const router = useRouter();
@@ -57,7 +58,8 @@ const PhotoPage = () => {
   }
 
   return ( 
-    <div className="pt-8">
+    <div>
+      <Navbar />
       <Heading
         title="Image Generation"
         description="Turn your prompt into image."

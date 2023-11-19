@@ -21,7 +21,11 @@ import { Loader } from "@/components/loader";
 import { UserAvatars } from "@/components/ui/user-avatars";
 import { Empty } from "@/components/ui/empty";
 
-import { formSchema } from "./constants";
+import { formSchema } from "./constants"; 
+
+import { Navbar } from "@/components/navbar"
+
+
 const ConversationPage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);
@@ -56,7 +60,8 @@ const ConversationPage = () => {
   }
 
   return ( 
-    <div className="pt-8">
+    <div>
+      <Navbar />
       <Heading
         title="Conversation"
         description="Start a conversation with an AI."

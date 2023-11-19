@@ -23,6 +23,8 @@ import { EmptyCode } from "@/components/ui/empty";
 
 import { formSchema } from "./constants";
 
+import { Navbar } from "@/components/navbar"
+
 const CodePage = () => {
   const router = useRouter();
   const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);
@@ -57,7 +59,8 @@ const CodePage = () => {
   }
 
   return ( 
-    <div className="pt-8">
+    <div>
+      <Navbar />
       <Heading
         title="Code Generation"
         description="Generate code using descriptive text."

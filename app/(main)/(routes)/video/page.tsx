@@ -18,6 +18,8 @@ import { EmptyVideo } from "@/components/ui/empty";
 
 import { formSchema } from "./constants";
 
+import { Navbar } from "@/components/navbar"
+
 const VideoPage = () => {
   const router = useRouter();
   const [video, setVideo] = useState<string>();
@@ -51,7 +53,8 @@ const VideoPage = () => {
   }
 
   return ( 
-    <div className="pt-8">
+    <div>
+      <Navbar />
       <Heading
         title="Video Generation"
         description="Turn your prompt into video."
