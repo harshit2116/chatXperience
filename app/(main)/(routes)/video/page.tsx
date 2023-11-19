@@ -15,10 +15,9 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Loader } from "@/components/loader";
 import { EmptyVideo } from "@/components/ui/empty";
-import { Navbar } from "@/components/navbar"
+import { Navbar } from "@/components/navbar";
 
 import { formSchema } from "./constants";
-
 
 const VideoPage = () => {
   const router = useRouter();
@@ -28,7 +27,7 @@ const VideoPage = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       prompt: "",
-    }
+    },
   });
 
   const isLoading = form.formState.isSubmitting;
@@ -37,7 +36,7 @@ const VideoPage = () => {
     try {
       setVideo(undefined);
 
-      const response = await axios.post('/api/video', values);
+      const response = await axios.post("/api/video", values);
 
       setVideo(response.data[0]);
       form.reset();
@@ -50,9 +49,9 @@ const VideoPage = () => {
     } finally {
       router.refresh();
     }
-  }
+  };
 
-  return ( 
+  return (
     <div>
       <Navbar />
       <Heading
@@ -64,8 +63,8 @@ const VideoPage = () => {
       />
       <div className="px-4 lg:px-8">
         <Form {...form}>
-          <form 
-            onSubmit={form.handleSubmit(onSubmit)} 
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
             className="
               rounded-lg 
               border 
@@ -86,15 +85,20 @@ const VideoPage = () => {
                   <FormControl className="m-0 p-0">
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent dark:bg-[#0e0222]"
-                      disabled={isLoading} 
-                      placeholder="Enter your prompt to generate a video" 
+                      disabled={isLoading}
+                      placeholder="Enter your prompt to generate a video"
                       {...field}
                     />
                   </FormControl>
                 </FormItem>
               )}
             />
-            <Button className="col-span-12 lg:col-span-2 w-full dark:bg-[#210d30] dark:text-white" type="submit" disabled={isLoading} size="icon">
+            <Button
+              className="col-span-12 lg:col-span-2 w-full dark:bg-[#210d30] dark:text-white"
+              type="submit"
+              disabled={isLoading}
+              size="icon"
+            >
               Generate
             </Button>
           </form>
@@ -108,13 +112,16 @@ const VideoPage = () => {
           <EmptyVideo label="No video files generated." />
         )}
         {video && (
-          <video controls className="w-full aspect-video mt-8 rounded-lg border bg-black">
+          <video
+            controls
+            className="w-full aspect-video mt-8 rounded-lg border bg-black"
+          >
             <source src={video} />
           </video>
         )}
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default VideoPage;

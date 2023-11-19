@@ -51,7 +51,6 @@ const tools = [
     bgcolor: "bg-blue-700/10",
     href: "/servers/channels",
   },
-
 ];
 
 const DashboardPage = () => {

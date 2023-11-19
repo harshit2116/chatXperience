@@ -2,7 +2,7 @@ import { auth } from "@clerk/nextjs";
 
 import { db } from "@/lib/db";
 
-import { updateProfile} from "@/lib/initial-profile";
+import { updateProfile } from "@/lib/initial-profile";
 
 export const currentProfile = async () => {
   const { userId } = auth();
@@ -15,10 +15,9 @@ export const currentProfile = async () => {
 
   const profile = await db.profile.findUnique({
     where: {
-      userId
-    }
+      userId,
+    },
   });
 
   return profile;
 };
-

@@ -17,8 +17,14 @@ import { Input } from "@/components/ui/input";
 import { Form, FormControl, FormField, FormItem } from "@/components/ui/form";
 import { Loader } from "@/components/loader";
 import { EmptyImage } from "@/components/ui/empty";
-import { Navbar } from "@/components/navbar"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Navbar } from "@/components/navbar";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 import { amountOptions, formSchema, resolutionOptions } from "./constants";
 
@@ -31,8 +37,8 @@ const PhotoPage = () => {
     defaultValues: {
       prompt: "",
       amount: "1",
-      resolution: "512x512"
-    }
+      resolution: "512x512",
+    },
   });
 
   const isLoading = form.formState.isSubmitting;
@@ -41,7 +47,7 @@ const PhotoPage = () => {
     try {
       setPhotos([]);
 
-      const response = await axios.post('/api/image', values);
+      const response = await axios.post("/api/image", values);
 
       const urls = response.data.map((image: { url: string }) => image.url);
 
@@ -55,9 +61,9 @@ const PhotoPage = () => {
     } finally {
       router.refresh();
     }
-  }
+  };
 
-  return ( 
+  return (
     <div>
       <Navbar />
       <Heading
@@ -69,8 +75,8 @@ const PhotoPage = () => {
       />
       <div className="px-4 lg:px-8">
         <Form {...form}>
-          <form 
-            onSubmit={form.handleSubmit(onSubmit)} 
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
             className="
               rounded-lg 
               border 
@@ -91,8 +97,8 @@ const PhotoPage = () => {
                   <FormControl className="m-0 p-0">
                     <Input
                       className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent dark:bg-[#0e0222]"
-                      disabled={isLoading} 
-                      placeholder="Enter your prompt to generate an image" 
+                      disabled={isLoading}
+                      placeholder="Enter your prompt to generate an image"
                       {...field}
                     />
                   </FormControl>
@@ -104,10 +110,10 @@ const PhotoPage = () => {
               name="amount"
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-2 ">
-                  <Select 
-                    disabled={isLoading} 
-                    onValueChange={field.onChange} 
-                    value={field.value} 
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    value={field.value}
                     defaultValue={field.value}
                   >
                     <FormControl>
@@ -117,10 +123,7 @@ const PhotoPage = () => {
                     </FormControl>
                     <SelectContent>
                       {amountOptions.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
+                        <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>
                       ))}
@@ -134,10 +137,10 @@ const PhotoPage = () => {
               name="resolution"
               render={({ field }) => (
                 <FormItem className="col-span-12 lg:col-span-2">
-                  <Select 
-                    disabled={isLoading} 
-                    onValueChange={field.onChange} 
-                    value={field.value} 
+                  <Select
+                    disabled={isLoading}
+                    onValueChange={field.onChange}
+                    value={field.value}
                     defaultValue={field.value}
                   >
                     <FormControl>
@@ -147,10 +150,7 @@ const PhotoPage = () => {
                     </FormControl>
                     <SelectContent>
                       {resolutionOptions.map((option) => (
-                        <SelectItem 
-                          key={option.value} 
-                          value={option.value}
-                        >
+                        <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>
                       ))}
@@ -159,7 +159,12 @@ const PhotoPage = () => {
                 </FormItem>
               )}
             />
-            <Button className="col-span-12 lg:col-span-2 w-full dark:bg-[#210d30] dark:text-white" type="submit" disabled={isLoading} size="icon">
+            <Button
+              className="col-span-12 lg:col-span-2 w-full dark:bg-[#210d30] dark:text-white"
+              type="submit"
+              disabled={isLoading}
+              size="icon"
+            >
               Generate
             </Button>
           </form>
@@ -176,14 +181,14 @@ const PhotoPage = () => {
           {photos.map((src) => (
             <Card key={src} className="rounded-lg overflow-hidden">
               <div className="relative aspect-square">
-                <Image
-                  fill
-                  alt="Generated"
-                  src={src}
-                />
+                <Image fill alt="Generated" src={src} />
               </div>
               <CardFooter className="p-2 dark:bg-[#0e0222]">
-                <Button onClick={() => window.open(src)} variant="secondary" className="w-full dark:bg-[#210d30]">
+                <Button
+                  onClick={() => window.open(src)}
+                  variant="secondary"
+                  className="w-full dark:bg-[#210d30]"
+                >
                   <Download className="h-4 w-4 mr-2" />
                   Download
                 </Button>
@@ -193,7 +198,7 @@ const PhotoPage = () => {
         </div>
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default PhotoPage;

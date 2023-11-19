@@ -20,33 +20,38 @@ import { Loader } from "@/components/loader";
 
 import { UserAvatars } from "@/components/ui/user-avatars";
 import { Empty } from "@/components/ui/empty";
-import { Navbar } from "@/components/navbar"
+import { Navbar } from "@/components/navbar";
 
-import { formSchema } from "./constants"; 
-
-
+import { formSchema } from "./constants";
 
 const ConversationPage = () => {
   const router = useRouter();
-  const [messages, setMessages] = useState<OpenAI.Chat.CreateChatCompletionRequestMessage[]>([]);
+  const [messages, setMessages] = useState<
+    OpenAI.Chat.CreateChatCompletionRequestMessage[]
+  >([]);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      prompt: ""
-    }
+      prompt: "",
+    },
   });
 
   const isLoading = form.formState.isSubmitting;
-  
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = { role: "user", content: values.prompt };
+      const userMessage: OpenAI.Chat.CreateChatCompletionRequestMessage = {
+        role: "user",
+        content: values.prompt,
+      };
       const newMessages = [...messages, userMessage];
-      
-      const response = await axios.post('/api/conversation', { messages: newMessages });
+
+      const response = await axios.post("/api/conversation", {
+        messages: newMessages,
+      });
       setMessages((current) => [...current, userMessage, response.data]);
-      
+
       form.reset();
     } catch (error: any) {
       if (error?.response?.status === 403) {
@@ -57,9 +62,9 @@ const ConversationPage = () => {
     } finally {
       router.refresh();
     }
-  }
+  };
 
-  return ( 
+  return (
     <div>
       <Navbar />
       <Heading
@@ -72,8 +77,8 @@ const ConversationPage = () => {
       <div className="px-4 lg:px-8">
         <div>
           <Form {...form}>
-            <form 
-              onSubmit={form.handleSubmit(onSubmit)} 
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
               className="
                 rounded-lg 
                 border 
@@ -94,15 +99,20 @@ const ConversationPage = () => {
                     <FormControl className="m-0 p-0">
                       <Input
                         className="border-0 outline-none focus-visible:ring-0 focus-visible:ring-transparent dark:bg-[#0e0222]"
-                        disabled={isLoading} 
-                        placeholder="Start a conversation..." 
+                        disabled={isLoading}
+                        placeholder="Start a conversation..."
                         {...field}
                       />
                     </FormControl>
                   </FormItem>
                 )}
               />
-              <Button className="col-span-12 lg:col-span-2 w-full dark:bg-[#210d30] dark:text-white" type="submit" disabled={isLoading} size="icon">
+              <Button
+                className="col-span-12 lg:col-span-2 w-full dark:bg-[#210d30] dark:text-white"
+                type="submit"
+                disabled={isLoading}
+                size="icon"
+              >
                 Generate
               </Button>
             </form>
@@ -119,16 +129,18 @@ const ConversationPage = () => {
           )}
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message, index) => (
-              <div 
-                key={index} 
+              <div
+                key={index}
                 className={cn(
                   "p-8 w-full flex items-start gap-x-8 rounded-lg",
-                  message.role === "user" ? "bg-white dark:bg-[#1d1130] border border-black/10" : "bg-muted dark:bg-[#341f57]",
+                  message.role === "user"
+                    ? "bg-white dark:bg-[#1d1130] border border-black/10"
+                    : "bg-muted dark:bg-[#341f57]"
                 )}
               >
                 {message.role === "user" ? <UserAvatars /> : <BotAvatar />}
                 <p className="text-sm">
-                  {typeof message.content === 'string' ? message.content : ""}
+                  {typeof message.content === "string" ? message.content : ""}
                 </p>
               </div>
             ))}
@@ -136,7 +148,7 @@ const ConversationPage = () => {
         </div>
       </div>
     </div>
-   );
-}
- 
+  );
+};
+
 export default ConversationPage;

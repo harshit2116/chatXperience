@@ -34,7 +34,7 @@ export const NavigationSidebar = async () => {
   return (
     <div className="space-y-4 flex flex-col items-center h-full text-primary w-full dark:bg-[#4e1475] bg-[#E3E5E8] py-3">
       <NavigationAction />
-      <Separator className="h-[2px] bg-zinc-300 dark:bg-zinc-700 rounded-md w-10 mx-auto" />
+      <Separator className="h-[2px] bg-zinc-300 dark:bg-zinc-700 rounded-md w-10 mx-autao" />
       <ScrollArea className="flex-1 w-full">
         {servers.map((server) => (
           <div key={server.id} className="mb-4 flex items-center">
@@ -68,9 +68,7 @@ export const NavigationSidebar = async () => {
           />
           <div className="flex flex-col ml-2 pl-2">
             <div className="cursor-pointer select-all">{profile.name}</div>
-            <div className="text-xs select-none">
-              {profile.email}
-            </div>
+            <div className="text-xs select-none">{profile.email}</div>
           </div>
         </div>
       </div>

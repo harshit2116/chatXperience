@@ -17,7 +17,6 @@ import {
 import { usePathname } from "next/navigation";
 
 const routes = [
-
   {
     label: "Create a Server",
     icon: Plus,
@@ -59,9 +58,7 @@ const routes = [
     href: "/code",
     color: "text-green-700",
   },
-
 ];
-
 
 export const NavigationAction = () => {
   const { onOpen } = useModal();
@@ -78,8 +75,8 @@ export const NavigationAction = () => {
     <div>
       <div className="space-y-1">
         {routes.map((route) => (
-          <Link 
-            key={route.href} 
+          <Link
+            key={route.href}
             href={route.href}
             onClick={(e) => handleLinkClick(route.href, e)}
             className={cn(
