@@ -2,7 +2,7 @@ import { ChevronLeft } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
 import Link from 'next/link';
 
-import { Button } from "./ui/button";
+import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
     return (
