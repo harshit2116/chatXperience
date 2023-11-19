@@ -5,7 +5,7 @@ import { useEffect } from "react";
 export const RedirectServer = () => {
   useEffect(() => {
     window.location.href =
-      "https://chatxperience-production.up.railway.app/invite/43e7065f-d80f-482d-82af-075b8ed51e5e";
+      "https://chatxperience-production.up.railway.app/invite/5415af12-10c6-4e5b-88bb-7a548f2f66cc";
   }, []);
 
   return null;
