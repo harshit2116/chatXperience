@@ -19,7 +19,7 @@ import { cn } from "@/lib/utils";
 import { Loader } from "@/components/loader";
 
 import { UserAvatars } from "@/components/ui/user-avatars";
-import { Empty } from "@/components/ui/empty";
+import { EmptyConversation } from "@/components/ui/empty";
 import { Navbar } from "@/components/navbar";
 
 import { formSchema } from "./constants";
@@ -125,7 +125,7 @@ const ConversationPage = () => {
             </div>
           )}
           {messages.length === 0 && !isLoading && (
-            <Empty label="No conversation started." />
+            <EmptyConversation label="No conversation started." />
           )}
           <div className="flex flex-col-reverse gap-y-4">
             {messages.map((message, index) => (
