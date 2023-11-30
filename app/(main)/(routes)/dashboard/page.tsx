@@ -8,6 +8,8 @@ import {
   MessagesSquare,
 } from "lucide-react";
 import { Card } from "@/components/ui/card";
+import { Navbar } from "@/components/navbar";
+
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
@@ -58,7 +60,8 @@ const DashboardPage = () => {
 
   return (
     <div>
-      <div className="mb-8 space-y-4 pt-8">
+      <div className="mb-8 space-y-4">
+        <Navbar />
         <h2 className="text-2xl md:text-4xl font-bold text-center">
           Have a Conversation with AI
         </h2>

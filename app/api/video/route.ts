@@ -29,7 +29,7 @@ export async function POST(req: Request) {
       }
     );
 
-    return NextResponse.json(response);
+    return NextResponse.json(response); // Corrected here
   } catch (error) {
     console.log('[REPLICATE_ERROR]', error);
     return new NextResponse("Internal Error", { status: 500 });
